@@ -37,8 +37,8 @@ s3Zip.archiveStream = function (stream, filesS3, filesZip) {
        var i = filesS3.indexOf(file.path)
        fname = (i >= 0 && i < filesZip.length) ? filesZip[i] : file.path
      } else {
-       // Just use the S3 file name
-       fname = file.path
+       const randomNum = Math.random();
+       fname = `${file.path}_${randomNum}`
      }
      console.log('append to zip', fname)
      if (file.data.length === 0) {
